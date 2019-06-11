@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mlsdev.mlsdevstore.presentaion.viewmodel.BaseHeaderViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_get_more_items"
+            style="@style/GreenRoundedButton"
+            android:drawableEnd="@mipmap/ic_cloud_download_white"
+            android:text="get more items " />
+
+    </LinearLayout>
+
+</layout>

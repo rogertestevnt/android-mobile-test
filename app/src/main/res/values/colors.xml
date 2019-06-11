@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#7C4DFF</color>
+    <color name="colorAccentDark">#502AB9</color>
+    <color name="colorPrimaryLight">#C8E6C9</color>
+
+    <!--Gray-->
+    <color name="navigation_item_color_active">#252525</color>
+    <color name="navigation_item_color_normal">#808080</color>
+    <color name="item_category">#252525</color>
+    <color name="red">#e64141</color>
+
+    <color name="credit_card_icon">#80FFFFFF</color>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mlsdev.mlsdevstore.presentaion.viewmodel.BaseHeaderViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
+
+            <Button
+                android:id="@+id/btn_all_categories"
+                style="@style/GreenRoundedButton"
+                android:layout_width="0dp"
+                android:layout_weight="1.45"
+                android:text="all categories" />
+
+            <Button
+                android:id="@+id/btn_sign_in"
+                style="@style/GreenRoundedButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="sign in" />
+
+            <Button
+                android:id="@+id/btn_sign_up"
+                style="@style/GreenRoundedButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="sign up" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:text="@{viewModel.header}"
+            android:textStyle="bold" />
+    </LinearLayout>
+</layout>

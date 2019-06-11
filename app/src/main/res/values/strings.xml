@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">MLSDev Store</string>
+
+    <!--Title-->
+    <string name="title_checkout">Checkout</string>
+    <string name="title_edit">Edit</string>
+
+    <!-- Bottom Navigation -->
+    <string name="navigation_title_store">Store</string>
+    <string name="navigation_title_cart">Cart</string>
+    <string name="navigation_title_account">Account</string>
+    <string name="navigation_title_favorites">Favorites</string>
+
+    <!--Errors-->
+    <string name="error_message_common">Something went wrong. Try again later.</string>
+    <string name="error_message_network">Check your internet connection and try again.</string>
+    <string name="error_message_tech">Technical error occurred. Please, try again later</string>
+    <string name="error_title_base">Issue</string>
+    <string name="error_empty_field">is empty</string>
+    <string name="error_not_found">not found</string>
+    <string name="error_incorrect_field">is incorrect</string>
+    <string name="error_add_to_favorites">Something wrong with this product. I can\'t add it into the
+    favorites. Sorry :(</string>
+    <string name="error_remove_from_favorites">Something wrong with this product. I can\'t remove it from the
+    favorites. Sorry :(</string>
+
+    <!--Button-->
+    <string name="button_close">Close</string>
+    <string name="title_categories">Categories</string>
+    <string name="btn_description">description</string>
+
+    <!--Label-->
+    <string name="label_item_condition_new">New</string>
+    <string name="label_item_condition_used">Used</string>
+    <string name="label_feedback_score">feedback \nscore</string>
+    <string name="label_positive_feedback">positive \nfeedback</string>
+    <string name="label_seller_info">Seller info</string>
+    <string name="label_full_specs">Full specs</string>
+    <string name="label_description">Description</string>
+    <string name="label_condition">Condition:</string>
+    <string name="label_brand">Brand:</string>
+    <string name="label_size">Size:</string>
+    <string name="label_gender">Gender</string>
+    <string name="label_color">Color</string>
+    <string name="label_material">Material</string>
+    <string name="label_empty_cart">No items - no fun :(</string>
+    <string name="label_empty_favorites">Save something :)</string>
+    <string name="label_total_sum">Total sum:</string>
+    <string name="label_total_sum_value">$%1$s</string>
+    <string name="label_personal_info">Personal Info</string>
+    <string name="label_first_name">First name:</string>
+    <string name="label_last_name">Last name:</string>
+    <string name="label_email">Email:</string>
+    <string name="label_shipping_info">Shipping info</string>
+    <string name="label_phone_number">Phone number:</string>
+    <string name="label_address">Address:</string>
+    <string name="label_city">City:</string>
+    <string name="label_postal_code">Postal code:</string>
+    <string name="label_state_or_province">State or province:</string>
+    <string name="label_payment_info">Payment info</string>
+    <string name="label_card_number">Card number:</string>
+    <string name="label_loading_data">loading data…</string>
+    <string name="label_retry">Retry</string>
+    <string name="label_empty_category">No products for this category</string>
+
+    <!--Button-->
+    <string name="btn_submit">Submit</string>
+    <string name="btn_add_to_cart">Add to cart</string>
+    <string name="btn_checkout">Checkout</string>
+    <string name="btn_edit">edit</string>
+    <string name="button_browse_all_categories">browse all categories</string>
+
+    <!--Value-->
+    <string name="value_percent">%1$s%%</string>
+
+    <!--Message-->
+    <string name="message_item_added">added to cart</string>
+    <string name="message_item_count_restriction">you can\'t buy more than 4 items per one checkout</string>
+
+    <!--Hint-->
+    <string name="hint_email">Email</string>
+    <string name="hint_first_name">First name</string>
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_phone_number">Phone number</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_city">City</string>
+    <string name="hint_postal_code">Postal code</string>
+    <string name="hint_state_or_province">State or province</string>
+    <string name="hint_card_holder">Card Holder</string>
+    <string name="hint_card_number">4111 1111 1111 1111</string>
+    <string name="hint_card_expiration">MM/YY</string>
+    <string name="label_place_order">Place Order</string>
+    <string name="hint_cvv">CVV</string>
+    <string name="error_empty">Empty</string>
+    <string name="error_incorrect">Incorrect</string>
+    <string name="error_incorrect_personal_info">Please check you personal info. All fields must be filled in</string>
+    <string name="message_order_sent">Your order has been successfully sent</string>
+
+</resources>

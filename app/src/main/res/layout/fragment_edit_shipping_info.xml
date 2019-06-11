@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mlsdev.mlsdevstore.presentaion.account.EditAccountViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/appbar_height"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/label_shipping_info"
+            app:titleTextAppearance="@style/ToolbarTextStyle"
+            app:titleTextColor="@android:color/black" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_margin">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_phone_number"
+                bind:error="@{viewModel.phoneNumberError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:onTextChanged="@{viewModel::onPhoneChanged}"
+                    android:text="@={viewModel.phoneNumber}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_address"
+                bind:error="@{viewModel.addressError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:onTextChanged="@{viewModel::onAddressChanged}"
+                    android:text="@={viewModel.address}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_city"
+                bind:error="@{viewModel.cityError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:onTextChanged="@{viewModel::onCityChanged}"
+                    android:text="@={viewModel.city}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_state_or_province"
+                bind:error="@{viewModel.stateError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onTextChanged="@{viewModel::onStateChanged}"
+                    android:text="@={viewModel.state}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_postal_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_postal_code"
+                bind:error="@{viewModel.postalCodeError}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_postal_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onTextChanged="@{viewModel::onPostalCodeChanged}"
+                    android:text="@={viewModel.postalCode}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/submit_button"
+                style="@style/AccentButtonRounded"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_margin="16dp"
+                android:onClick="@{() -> viewModel.onSubmitShippingInfoClick()}"
+                android:text="@string/btn_submit"
+                android:textAllCaps="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</layout>

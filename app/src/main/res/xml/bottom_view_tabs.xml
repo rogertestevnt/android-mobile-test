@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        id="@+id/navigation_item_store"
+        icon="@drawable/ic_mlsdev_logo"
+        title="@string/navigation_title_store"
+        barColorWhenSelected="@android:color/white"/>
+
+    <tab
+        id="@+id/navigation_item_cart"
+        icon="@drawable/ic_cart"
+        title="@string/navigation_title_cart"
+        barColorWhenSelected="@android:color/white"/>
+
+    <tab
+        id="@+id/navigation_item_account"
+        icon="@drawable/ic_fingerprint"
+        title="@string/navigation_title_account"
+        barColorWhenSelected="@android:color/white"/>
+</tabs>

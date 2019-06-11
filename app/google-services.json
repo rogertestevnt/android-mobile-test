@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "663263758911",
+    "firebase_url": "https://mlsdev-ecommerce-sample.firebaseio.com",
+    "project_id": "mlsdev-ecommerce-sample",
+    "storage_bucket": "mlsdev-ecommerce-sample.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663263758911:android:35abf6adf2902c80",
+        "android_client_info": {
+          "package_name": "com.mlsdev.mlsdevstore.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663263758911-111oeqpv9c61gan2mqg8ttn4oucsoq7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGsCupe_9bZsM53EciCj2SeQtrK8IXgO4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

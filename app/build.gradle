@@ -1,0 +1,198 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+//Apply Safe Args Plugin
+apply plugin: 'androidx.navigation.safeargs'
+
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.mlsdev.mlsdevstore"
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "com.mlsdev.mlsdevstore.TestRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('mlsdev_store_keystore.jks')
+            storePassword '11111111'
+            keyAlias 'alias_mlsdev_store'
+            keyPassword '11111111'
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://api.sandbox.ebay.com/\""
+            buildConfigField "String", "BASE_URL_CHECKOUT", "\"https://api.sandbox.ebay.com/buy/order/v1\""
+            buildConfigField "String", "CLIENT_ID", "\"DickMoun-MLSDevSt-SBX-05d7a0307-0697aff6\""
+            buildConfigField "String", "CLIENT_SECRET", "\"SBX-5d7a03073185-0dd8-4b87-ae38-f61d\""
+            buildConfigField "String", "REDIRECT_URI", "\"Dick_Mountain-DickMoun-MLSDev-qjxfadmee\""
+            buildConfigField "String", "SEARCH_API_KEY", "\"11508179-83ac43fa7326da134c9093d3d\""
+            minifyEnabled false
+            versionNameSuffix '-DEBUG'
+            applicationIdSuffix '.debug'
+
+        }
+
+        release {
+            buildConfigField "String", "BASE_URL", "\"https://api.ebay.com/\""
+            buildConfigField "String", "BASE_URL_CHECKOUT", "\"https://api.ebay.com/buy/order/v1\""
+            buildConfigField "String", "CLIENT_ID", "\"DickMoun-MLSDevSt-PRD-7132041a0-99f80320\""
+            buildConfigField "String", "CLIENT_SECRET", "\"PRD-132041a09e1f-bfaf-41ad-a77c-1e70\""
+            buildConfigField "String", "REDIRECT_URI", "\"Dick_Mountain-DickMoun-MLSDev-ckswkaq\""
+            buildConfigField "String", "SEARCH_API_KEY", "\"11508179-83ac43fa7326da134c9093d3d\""
+            minifyEnabled false
+            signingConfig = android.signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    android.applicationVariants.all {
+        def aptOutputDir = new File(buildDir, "generated/source/apt/${it.unitTestVariant.dirName}")
+        it.unitTestVariant.addJavaSourceFoldersToModel(aptOutputDir)
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+ext {
+    // tests
+    junitVersion = '4.12'
+    supportTestsLibVersion = '0.5'
+    espressoVersion = '3.0.1'
+    mockitoVersion = '2.10.0'
+    robolectricVersion = '3.4.2'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    implementation 'com.google.android.material:material:1.1.0-alpha05'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha04'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha5'
+
+    // Ktx
+    implementation 'androidx.core:core-ktx:1.0.1'
+
+    // WorkManager
+    def work_version = '2.0.0'
+    implementation "androidx.work:work-rxjava2:$work_version"
+    androidTestImplementation "androidx.work:work-testing:$work_version"
+
+    // Navigation library
+    def nav_version = "1.0.0"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+
+    // Paging
+    def paging_version = "2.1.0"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+
+    // Room DB
+    def room = '2.1.0-alpha06'
+    implementation "androidx.room:room-runtime:$room"
+    implementation "androidx.room:room-rxjava2:$room"
+    kapt "androidx.room:room-compiler:$room"
+    androidTestImplementation 'androidx.arch.core:core-testing:2.0.1'
+
+    // Lifecycle
+    def lifecycle = '2.1.0-alpha03'
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle"
+
+    // Dagger
+    def dagger = '2.16'
+    implementation "com.google.dagger:dagger:$dagger"
+    implementation "com.google.dagger:dagger-android:$dagger"
+    implementation "com.google.dagger:dagger-android-support:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+    // Retrofit
+    def retrofit = '2.3.0'
+    def okHttp = '3.10.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    implementation "com.squareup.okhttp3:okhttp:$okHttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttp"
+
+    // Firebase services
+    def firebaseVersion = '16.0.8'
+    implementation "com.google.firebase:firebase-core:$firebaseVersion"
+    implementation "com.google.firebase:firebase-perf:16.2.4"
+
+    // JSON converter
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // Image loading
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    // UI
+    //      RecyclerView open animation
+    implementation "com.mlsdev.animatedrv:library:1.0.1"
+
+    // UI tests
+    //      JUnit
+    androidTestImplementation "junit:junit:$junitVersion"
+
+    //      Mockito
+    androidTestImplementation "org.mockito:mockito-android:$mockitoVersion"
+
+    //      Rule & Runner
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
+
+    //      Annotations
+    androidTestImplementation 'androidx.annotation:annotation:1.0.2'
+
+    //      Espresso
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.1'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // Unit tests
+    //      JUnit
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "android.arch.core:core-testing:1.1.1"
+
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/store_flow_fragment"
+        android:icon="@drawable/ic_mlsdev_logo"
+        android:title="@string/navigation_title_store"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/cart_flow_fragment"
+        android:icon="@drawable/ic_cart"
+        android:title="@string/navigation_title_cart"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/favorites_flow_fragment"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/navigation_title_favorites"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/account_flow_fragment"
+        android:icon="@drawable/ic_fingerprint"
+        android:title="@string/navigation_title_account"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mlsdev.mlsdevstore.presentaion.product.ProductDetailsViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_condition"
+            style="@style/ItemSpecTextStyle"
+            android:text="@string/label_condition" />
+
+        <TextView
+            android:id="@+id/tv_condition_value"
+            style="@style/ItemSpecTextStyle"
+            android:layout_alignParentEnd="true"
+            android:text="@{viewModel.condition}" />
+
+        <TextView
+            android:id="@+id/tv_brand"
+            style="@style/ItemSpecTextStyle"
+            android:layout_below="@id/tv_condition"
+            android:text="@string/label_brand" />
+
+        <TextView
+            android:id="@+id/tv_brand_value"
+            style="@style/ItemSpecTextStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_condition"
+            android:text="@{viewModel.brand}" />
+
+        <TextView
+            android:id="@+id/tv_size"
+            style="@style/ItemSpecTextStyle"
+            android:layout_below="@id/tv_brand_value"
+            android:text="@string/label_size" />
+
+        <TextView
+            android:id="@+id/tv_size_value"
+            style="@style/ItemSpecTextStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_brand_value"
+            android:text="@{viewModel.size}" />
+
+        <TextView
+            android:id="@+id/tv_gender"
+            style="@style/ItemSpecTextStyle"
+            android:layout_below="@id/tv_size_value"
+            android:text="@string/label_gender" />
+
+        <TextView
+            android:id="@+id/tv_gender_value"
+            style="@style/ItemSpecTextStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_size_value"
+            android:text="@{viewModel.gender}" />
+
+        <TextView
+            android:id="@+id/tv_color"
+            style="@style/ItemSpecTextStyle"
+            android:layout_below="@id/tv_gender"
+            android:text="@string/label_color" />
+
+        <TextView
+            android:id="@+id/tv_color_value"
+            style="@style/ItemSpecTextStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_gender"
+            android:text="@{viewModel.color}" />
+
+        <TextView
+            android:id="@+id/tv_material"
+            style="@style/ItemSpecTextStyle"
+            android:layout_below="@id/tv_color"
+            android:text="@string/label_material" />
+
+        <TextView
+            android:id="@+id/tv_material_value"
+            style="@style/ItemSpecTextStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_color"
+            android:text="@{viewModel.material}" />
+
+    </RelativeLayout>
+</layout>

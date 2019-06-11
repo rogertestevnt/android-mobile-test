@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@+id/store_flow_fragment">
+
+    <fragment
+        android:id="@+id/store_flow_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.store.StoreFragment"
+        android:label="StoreFragment"
+        tools:layout="@layout/fragment_store">
+        <action
+            android:id="@+id/action_store_flow_fragment_to_productFragment"
+            app:destination="@id/product_fragment"
+            app:enterAnim="@anim/nav_enter_anim"
+            app:exitAnim="@anim/nav_exit_anim"
+            app:popEnterAnim="@anim/nav_pop_enter_anim"
+            app:popExitAnim="@anim/nav_pop_exit_anim" />
+        <action
+            android:id="@+id/action_store_flow_fragment_to_categoriesFragment"
+            app:destination="@id/categories_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/cart_flow_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cart_flow_fragment_to_checkout_fragment"
+            app:destination="@id/checkout_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/account_flow_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.account.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_account_flow_fragment_to_edit_personal_info_fragment"
+            app:destination="@id/edit_personal_info_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_account_flow_fragment_to_edit_shipping_info_fragment"
+            app:destination="@id/edit_shipping_info_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/product_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.product.ProductFragment"
+        android:label="ProductFragment"
+        tools:layout="@layout/fragment_product">
+        <argument
+            android:name="product_details"
+            app:argType="com.mlsdev.mlsdevstore.data.model.product.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/categories_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.categories.CategoriesFragment"
+        android:label="CategoriesFragment"
+        tools:layout="@layout/fragment_categories">
+        <action
+            android:id="@+id/action_categoriesFragment_to_productsFragment"
+            app:destination="@+id/products_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/products_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.products.ProductsFragment"
+        android:label="ProductsFragment"
+        tools:layout="@layout/fragment_products">
+        <argument
+            android:name="category_id"
+            android:defaultValue="-1"
+            app:argType="string" />
+        <argument
+            android:name="category_name"
+            android:defaultValue="Category"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_productsFragment_to_product_fragment"
+            app:destination="@id/product_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://mlsdevstore.com/products/{category_id}/{category_name}" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit_personal_info_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.account.EditPersonalInfoFragment"
+        android:label="EditPersonalInfoFragment"
+        tools:layout="@layout/fragment_edit_personal_info" />
+    <fragment
+        android:id="@+id/edit_shipping_info_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.account.EditShippingInfoFragment"
+        android:label="EditShippingInfoFragment"
+        tools:layout="@layout/fragment_edit_shipping_info" />
+    <fragment
+        android:id="@+id/checkout_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.checkout.CheckoutFragment"
+        android:label="CheckoutFragment"
+        tools:layout="@layout/fragment_checkout" />
+    <fragment
+        android:id="@+id/favorites_flow_fragment"
+        android:name="com.mlsdev.mlsdevstore.presentaion.favorites.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites">
+        <action
+            android:id="@+id/action_favoritesFragment_to_product_fragment"
+            app:destination="@id/product_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+</navigation>

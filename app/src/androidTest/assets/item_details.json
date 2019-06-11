@@ -1,0 +1,45 @@
+{
+  "itemId": "v1|110241616770|0",
+  "title": "Apple iPhone SE 16GB Rose Gold LTE Cellular TracFone MP8N2LL/A",
+  "price": {
+    "value": "170.40",
+    "currency": "USD"
+  },
+  "itemHref": "https://api.sandbox.ebay.com/buy/browse/v1/item/v1|110241616770|0",
+  "seller": {
+    "feedbackScore": 500
+  },
+  "condition": "New",
+  "conditionId": "1000",
+  "shippingOptions": [
+    {
+      "shippingCostType": "FIXED",
+      "shippingCost": {
+        "value": "0.00",
+        "currency": "USD"
+      }
+    }
+  ],
+  "buyingOptions": [
+    "FIXED_PRICE"
+  ],
+  "currentBidPrice": {
+    "value": "170.40",
+    "currency": "USD"
+  },
+  "itemAffiliateWebUrl": "https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&customid=%3CreferenceId%3E&toolid=10049&mpre=http%3A%2F%2Fwww.ebay.com%2Fitm%2FApple-iPhone-SE-16GB-Rose-Gold-LTE-Cellular-TracFone-MP8N2LL-A%2F110241616770%3Fsrc%3Durllib%26hash%3Ditem19aae99382%3Ai%3A110241616770",
+  "itemWebUrl": "http://www.ebay.com/itm/Apple-iPhone-SE-16GB-Rose-Gold-LTE-Cellular-TracFone-MP8N2LL-A/110241616770?src=urllib&hash=item19aae99382:i:110241616770",
+  "itemLocation": {
+    "postalCode": "72756",
+    "country": "US"
+  },
+  "categories": [
+    {
+      "categoryId": "9355"
+    },
+    {
+      "categoryId": "15032"
+    }
+  ],
+  "adultOnly": false
+}
