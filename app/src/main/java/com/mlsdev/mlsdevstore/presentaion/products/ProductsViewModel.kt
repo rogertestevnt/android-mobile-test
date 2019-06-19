@@ -8,6 +8,7 @@ import com.mlsdev.mlsdevstore.data.DataLoadState
 import com.mlsdev.mlsdevstore.data.model.product.Product
 import com.mlsdev.mlsdevstore.data.repository.ProductsRepository
 import com.mlsdev.mlsdevstore.data.repository.SearchImageRepository
+import com.mlsdev.mlsdevstore.presentaion.utils.EspressoIdlingResource
 import com.mlsdev.mlsdevstore.presentaion.utils.ExtrasKeys
 import com.mlsdev.mlsdevstore.presentaion.utils.Utils
 import com.mlsdev.mlsdevstore.presentaion.viewmodel.BaseViewModel
@@ -27,6 +28,7 @@ class ProductsViewModel @Inject constructor(
 
     fun initCategoryData(categoryData: Bundle?) {
         checkNetworkConnection(appUtils) {
+            EspressoIdlingResource.increment()
             val categoryId = categoryData?.getString(ExtrasKeys.KEY_CATEGORY_ID)
             categoryName.set(categoryData?.getString(ExtrasKeys.KEY_CATEGORY_NAME, "") ?: "")
 
@@ -37,6 +39,7 @@ class ProductsViewModel @Inject constructor(
                 throw Exception("'Category id' hasn't been passed")
             }
         }
+        EspressoIdlingResource.decrement()
     }
 
     private fun loadImageForCategory(categoryId: String?, categoryName: String?) {

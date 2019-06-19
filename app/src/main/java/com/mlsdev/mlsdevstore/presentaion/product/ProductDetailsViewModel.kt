@@ -13,6 +13,7 @@ import com.mlsdev.mlsdevstore.data.cart.Cart
 import com.mlsdev.mlsdevstore.data.model.product.Image
 import com.mlsdev.mlsdevstore.data.model.product.Product
 import com.mlsdev.mlsdevstore.presentaion.favorites.FavoritesViewModel
+import com.mlsdev.mlsdevstore.presentaion.utils.EspressoIdlingResource
 import com.mlsdev.mlsdevstore.presentaion.utils.Utils
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -77,6 +78,7 @@ constructor(
 
     private fun retrieveDetailedInfo(itemId: String) {
         checkNetworkConnection(utils) {
+            EspressoIdlingResource.increment()
             compositeDisposable.add(dataSource.getItem(itemId).subscribe(
                     { product: Product ->
                         description.set(product.description)
@@ -98,6 +100,7 @@ constructor(
                     },
                     { handleError(it) }
             ))
+            EspressoIdlingResource.decrement()
         }
     }
 

@@ -1,0 +1,7 @@
+Bugs Found
+
+1) Exception thrwon whe idling resource is used: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [ASYNC_CALLS] to become idle timed out
+
+2) HTTP Error 404 when selecting any product
+
+3) HTTP Error 409 when trying to finish an order																																																																																																																																																		

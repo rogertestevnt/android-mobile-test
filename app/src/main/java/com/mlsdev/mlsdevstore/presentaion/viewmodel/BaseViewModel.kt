@@ -9,6 +9,7 @@ import com.mlsdev.mlsdevstore.data.DataLoadState
 import com.mlsdev.mlsdevstore.data.model.error.ErrorParser
 import com.mlsdev.mlsdevstore.data.model.error.ValidationException
 import com.mlsdev.mlsdevstore.data.model.message.AlertMessage
+import com.mlsdev.mlsdevstore.presentaion.utils.EspressoIdlingResource
 import com.mlsdev.mlsdevstore.presentaion.utils.Utils
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
@@ -57,6 +58,7 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver {
         networkErrorLiveData.postValue(true)
         setIsRefreshing(false)
         setIsLoading(false)
+        EspressoIdlingResource.decrement()
     }
 
     fun onCommonErrorOccurred() {

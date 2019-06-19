@@ -19,7 +19,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "com.mlsdev.mlsdevstore.TestRunner"
+//        testInstrumentationRunner "com.mlsdev.mlsdevstore.TestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -167,9 +168,13 @@ dependencies {
     //      RecyclerView open animation
     implementation "com.mlsdev.animatedrv:library:1.0.1"
 
+    //Idling Resources
+    implementation 'androidx.test.espresso.idling:idling-concurrent:3.1.1'
+
     // UI tests
     //      JUnit
     androidTestImplementation "junit:junit:$junitVersion"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
 
     //      Mockito
     androidTestImplementation "org.mockito:mockito-android:$mockitoVersion"

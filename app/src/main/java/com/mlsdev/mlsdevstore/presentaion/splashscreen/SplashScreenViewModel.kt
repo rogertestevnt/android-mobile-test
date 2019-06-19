@@ -5,6 +5,7 @@ import com.mlsdev.mlsdevstore.data.local.Key
 import com.mlsdev.mlsdevstore.data.local.SharedPreferencesManager
 import com.mlsdev.mlsdevstore.data.model.authentication.AppAccessToken
 import com.mlsdev.mlsdevstore.data.remote.datasource.RemoteDataSource
+import com.mlsdev.mlsdevstore.presentaion.utils.EspressoIdlingResource
 import com.mlsdev.mlsdevstore.presentaion.viewmodel.BaseViewModel
 import java.util.*
 import javax.inject.Inject
@@ -18,10 +19,13 @@ constructor(private val source: RemoteDataSource, private val preferencesManager
         val token = preferencesManager[Key.APPLICATION_ACCESS_TOKEN, AppAccessToken::class.java]
         val currentTime = Calendar.getInstance().timeInMillis
         if (token == null || token.expirationDate - currentTime <= 0) {
+            EspressoIdlingResource.increment()
             compositeDisposable.add(source.appAccessToken.subscribe(
                     { accessToken: AppAccessToken? -> appAccessTokenLiveData.postValue(accessToken != null) },
-                    { handleError(it) }))
+                    { handleError(it)
+                        EspressoIdlingResource.decrement()}))
         } else {
+            EspressoIdlingResource.decrement()
             appAccessTokenLiveData.postValue(true)
         }
     }
