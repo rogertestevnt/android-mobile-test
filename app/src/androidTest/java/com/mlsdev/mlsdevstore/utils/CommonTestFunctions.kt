@@ -159,6 +159,17 @@ class CommonTestFunctions internal constructor() {
             return true
         }
 
+        fun isElementDisplayed(text:String): Boolean {
+            try {
+                Espresso.onView(ViewMatchers.withText(text))
+                        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+            } catch (e: NoMatchingViewException) {
+                return false
+            }
+            return true
+        }
+
         fun scrollToElement(elementId: Int) {
             Espresso.onView(ViewMatchers.withId(elementId))
                     .perform(ViewActions.scrollTo())

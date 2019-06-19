@@ -17,13 +17,7 @@ class BasicTests:GenericTestClass() {
 
     @Test
     fun addAnItemToFavorites() {
-        //Using a random integer to choose product for different categories at each test run
-        val randomInteger = (1..5).shuffled().first()
         CommonTestFunctions.clickElement(R.id.store_flow_fragment)
-        CommonTestFunctions.clickElement(R.id.button_browse_categories)
-        Thread.sleep(2000)
-        CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_categories, randomInteger)
-        Thread.sleep(3000)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_products, 0)
         //Temporaly handling a http 404 error after choosing any product
         CommonTestFunctions.clickElement(context.getString(R.string.button_close))
@@ -35,14 +29,7 @@ class BasicTests:GenericTestClass() {
 
     @Test
     fun addAndRemoveAnItemFromChart() {
-        //Making sure that the cart is empty
-        CommonTestFunctions.clickElement(R.id.cart_flow_fragment)
-        CommonTestFunctions.assertElementIsDisplayed(R.id.empty_cart_placeholder)
         CommonTestFunctions.clickElement(R.id.store_flow_fragment)
-        CommonTestFunctions.clickElement(R.id.button_browse_categories)
-        //Finding the category by its position in RecyclerView
-        CommonTestFunctions.scrollRecyclerViewByPositionAndPerformClick(R.id.rv_categories, 13)
-        Thread.sleep(3000)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_products, 0)
         //Temporaly handling a http 404 error after choosing any product
         CommonTestFunctions.clickElement(context.getString(R.string.button_close))
@@ -55,20 +42,20 @@ class BasicTests:GenericTestClass() {
     }
 
     @Test
-    fun  buyOneItemFromHealthAndBeautyCategory() {
-        addPersonalInfo("landon@king.com","Landon", "King")
-        addShippingInfo("551233665522", "501 East St", "Palms", " Tocantins", "13080633")
-        chooseOneItemAndCheckout(30)
+    fun buyOneItemFromHealthAndBeautyCategory() {
+        addPersonalInfo("elvis@nelson.com","Elvis", "Nelson")
+        addShippingInfo("551993366552", "503 West St", "Palms", " Florida", "43080633")
+        chooseOneItemAndCheckout(30,"5102316149946077","1120", "859", "Elvis Nelson")
     }
 
     @Test
-    fun  buyOneItemFromBabyCategory() {
+    fun buyOneItemFromBabyCategory() {
         addPersonalInfo("landon@king.com","Landon", "King")
         addShippingInfo("551233665522", "501 East St", "Palms", " Tocantins", "13080633")
-        chooseOneItemAndCheckout(17)
+        chooseOneItemAndCheckout(17,"4064722257954002","0321", "207", "Landon King")
     }
 
-    private fun chooseOneItemAndCheckout(category:Int){
+    private fun chooseOneItemAndCheckout(category:Int,cardNumber:String, expirationDate:String, cardCvv:String, cardHolder: String) {
         CommonTestFunctions.clickElement(R.id.store_flow_fragment)
         CommonTestFunctions.clickElement(R.id.button_browse_categories)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_categories, category)
@@ -79,8 +66,7 @@ class BasicTests:GenericTestClass() {
         CommonTestFunctions.clickElement(context.getString(R.string.btn_add_to_cart))
         CommonTestFunctions.clickElement(R.id.cart_flow_fragment)
         CommonTestFunctions.clickElement(R.id.button_checkout)
-        addCardInfo("4064722257954002","0321", "207", "Landon King")
-        //onView(ViewMatchers.withText(" Payment Info")).check(ViewAssertions.matches(DrawableMatchers.withDrawable(R.drawable.ic_visa)))
+        addCardInfo(cardNumber, expirationDate, cardCvv, cardHolder)
         CommonTestFunctions.clickElement(R.id.button_place_order)
     }
 
@@ -112,7 +98,7 @@ class BasicTests:GenericTestClass() {
         CommonTestFunctions.typeText(R.id.edit_text_state,state)
         CommonTestFunctions.typeText(R.id.edit_text_postal_code, zipCode)
         CommonTestFunctions.clickElement(R.id.submit_button)
-   }
+    }
 
     private fun addCardInfo(cardNumber:String, expirationDate:String, cardCvv:String, cardHolder: String) {
         CommonTestFunctions.clearText(R.id.text_card_number)

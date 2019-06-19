@@ -1,18 +1,25 @@
 Notes about the architecture and other technical decisions
 
-- Kotlin has been chosen to be the same language used to developing the app
+- Kotlin has been chosen to be the same language used to developing the app.
+
 - A common class has been designed as a companion object for the test classes
-to have access to the methods that perform interaction with the application UI
+to have access to the methods that perform interaction with the application UI; the target
+is to keep the test code simpler and more readable, and to make easy the code reuse.
+
 - A generic test class has been designed for placing some common tasks as:
 activity launch, pre and post conditions commons for the test classes, it can be
 used also to place things like variables for logging, etc
+
 - I tried to avoid using Thread.sleeps calls by making usage of Espresso Idling Resources,
 which keeps the test class in idling mode during the test execution while the calls to
 API are not finished. However, a timeout error has occured when I used the counting idling
 resource, then I stopped using it.
-- The usage of mocking the API calls would be a better solution for running the integration tests,
+
+- The usage of mocking for the API calls would be a better solution for running the integration tests,
 as we keep control of the test data when using mock and focus on the application behavior. However,
 I would need a better understanding of the application's architecture to implement the mock
-(sorry, my fault)
+(sorry, my bad). Mocking would prevent any failures for any component (e.g any products) to not be
+available in a given view, and can even give the possibility to test the scenario where no
+products are available and to test the conditions that trigger error messages, like HTTP error codes.
 
 
