@@ -4,12 +4,15 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.mlsdev.mlsdevstore.R
 import com.mlsdev.mlsdevstore.utils.CommonTestFunctions
+import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.runners.MethodSorters
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class BasicTests:GenericTestClass() {
 
     @Test
@@ -18,6 +21,7 @@ class BasicTests:GenericTestClass() {
         val randomInteger = (1..5).shuffled().first()
         CommonTestFunctions.clickElement(R.id.store_flow_fragment)
         CommonTestFunctions.clickElement(R.id.button_browse_categories)
+        Thread.sleep(2000)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_categories, randomInteger)
         Thread.sleep(3000)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_products, 0)
@@ -27,7 +31,6 @@ class BasicTests:GenericTestClass() {
         //To assert that the element is displayed
         CommonTestFunctions.clickElement(R.id.favorites_flow_fragment)
         CommonTestFunctions.assertElementIsNotDisplayed(R.id.layout_empty_view)
-
     }
 
     @Test
@@ -39,6 +42,7 @@ class BasicTests:GenericTestClass() {
         CommonTestFunctions.clickElement(R.id.button_browse_categories)
         //Finding the category by its position in RecyclerView
         CommonTestFunctions.scrollRecyclerViewByPositionAndPerformClick(R.id.rv_categories, 13)
+        Thread.sleep(3000)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_products, 0)
         //Temporaly handling a http 404 error after choosing any product
         CommonTestFunctions.clickElement(context.getString(R.string.button_close))
@@ -68,7 +72,7 @@ class BasicTests:GenericTestClass() {
         CommonTestFunctions.clickElement(R.id.store_flow_fragment)
         CommonTestFunctions.clickElement(R.id.button_browse_categories)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_categories, category)
-        Thread.sleep(2000)
+        Thread.sleep(5000)
         CommonTestFunctions.clickOnRecyclerViewItemByPosition(R.id.rv_products, 0)
         //Temporaly handling a http 404 error after choosing any product
         CommonTestFunctions.clickElement(context.getString(R.string.button_close))
@@ -122,5 +126,4 @@ class BasicTests:GenericTestClass() {
         CommonTestFunctions.clearText(R.id.text_card_holder)
         CommonTestFunctions.typeText(R.id.text_card_holder, cardHolder)
     }
-
 }
