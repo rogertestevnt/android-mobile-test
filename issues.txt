@@ -1,7 +1,13 @@
 Bugs Found
 
 1) Exception thrwon whe idling resource is used: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [ASYNC_CALLS] to become idle timed out
+(this could be caused due to a wrong idling resource configuration for the decrement method)
 
 2) HTTP Error 404 when selecting any product
 
-3) HTTP Error 409 when trying to finish an order																																																																																																																																																		
+3) HTTP Error 409 when trying to finish an order - that is preventing any order to be finished.	
+
+4) The field phone number, in Personal Info view has a wide length, allowing the user to provide very large phone numbers. It should be better
+to set a limit of characters to avoid worng inputs.
+
+5) The field postal code accepts both numeric and alpha numeric characters.																																																																																																																																																
